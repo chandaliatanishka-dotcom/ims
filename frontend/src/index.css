@@ -1,0 +1,76 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #0f172a;
+  --panel: #0b1220;
+  --muted-bg: #071026;
+  --accent: #06b6d4;
+  --accent-2: #7c3aed;
+  --card: #0b1320;
+  --text: #e6eef8;
+  --muted: #9fb0c9;
+  --success: #16a34a;
+  --danger: #ef4444;
+  --glass: rgba(255,255,255,0.03);
+}
+
+* { box-sizing: border-box; }
+html,body,#root { height:100%; }
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #071428 0%, #071026 100%);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container { max-width:1120px; margin:0 auto; padding:0 20px; }
+.main { padding:40px 0; }
+
+/* Navbar */
+.navbar { position:sticky; top:0; z-index:60; backdrop-filter: blur(6px); background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-bottom: 1px solid rgba(255,255,255,0.03); }
+.nav-inner { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; }
+.brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700; }
+.brand svg { color:var(--accent); }
+.brand-title { font-size:18px; }
+.nav-actions { display:flex; align-items:center; gap:12px; }
+.nav-link { color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:8px; }
+.nav-link:hover { color:var(--text); background:var(--glass); }
+
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:8px 12px; border-radius:10px; font-weight:600; cursor:pointer; text-decoration:none; }
+.btn-primary { background: linear-gradient(90deg,var(--accent),var(--accent-2)); color: #021017; }
+.btn-primary:hover { opacity:0.95; }
+.btn-danger { background:var(--danger); color:white; border:none; }
+
+.user-wrap { position:relative; }
+.user-icon { cursor:pointer; color:var(--accent); }
+.dropdown { position:absolute; right:0; top:46px; background:linear-gradient(180deg, rgba(11,19,32,0.95), rgba(3,8,14,0.95)); border:1px solid rgba(255,255,255,0.04); padding:12px; border-radius:10px; min-width:180px; box-shadow:0 8px 30px rgba(2,6,23,0.6); }
+.dropdown .muted { font-size:12px; color:var(--muted); margin:0 0 6px 0; }
+.dropdown .role { font-weight:700; color:var(--text); margin:0 0 10px 0; }
+
+/* Page utilities */
+.page { padding:40px 0; }
+.card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); padding:18px; border-radius:14px; }
+.feature-card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+.feature-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(2,6,23,0.6); }
+
+/* Forms and buttons inside cards, keep them readable */
+input,select,textarea { background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.04); color:var(--text); padding:10px 12px; border-radius:8px; }
+label { color:var(--muted); font-size:13px; display:block; margin-bottom:6px; }
+
+/* Footer */
+.site-footer { border-top:1px solid rgba(255,255,255,0.03); padding:28px 0; margin-top:40px; }
+.footer-inner { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.brand-row { display:flex; align-items:center; gap:8px; color:var(--muted); font-weight:700; }
+.muted { color:var(--muted); }
+
+/* Responsive tweaks */
+@media (max-width:768px) {
+  .nav-inner { padding:12px 0; }
+  .container { padding:0 16px; }
+  .footer-inner { flex-direction:column; align-items:flex-start; gap:6px; }
+}
+
+/* Keep original tailwind utilities functional but this CSS steers the new look */
